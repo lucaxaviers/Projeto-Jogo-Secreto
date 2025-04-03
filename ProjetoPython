@@ -4,9 +4,56 @@ print("              Desenvolvido Por:")
 print("                Lucas Xavier,")
 print("               Mateus Oliveira,")
 print("              Wanderley Vieira,")
-print("               Arthur Grizione;")
+print("               Arthur Grizone;")
 print(" ------------------------------------------------")
 print(" ===>        EXPLICANDO O JOGO        <===")
 print("Objetivo:\nAcertar um número secreto de 4 dígitos (entre 1000 e 9999) em 10 tentativas.")
 print("Após a 5° tentativa vamos te dar dicas")
 print(" ------------------------------------------------")
+
+code = 2710
+digito1 = code // 1000            
+digito2 = (code // 100) % 10     
+digito3 = (code // 10) % 10       
+digito4 = code % 10   
+
+certo1 = "_"
+certo2 = "_"
+certo3 = "_"
+certo4 = "_"
+
+tentativa = 0
+acertou = 0  # 0 para não acertou, 1 para acertou
+
+for cont in range(10): 
+    if acertou == 0:
+        tentativa = int(input(f"Tentativa {cont + 1}/10 Digite um numero entre 1000 e 9999: "))
+        
+        if 1000 <= tentativa <= 9999:
+            if tentativa == code:
+                if cont == 0:
+                    print("Parabénsss Você Acertou o segredo de Primeira!!!!!")
+                else:
+                    print("Parabénsss Você Acertou o segredo!!!")
+                acertou = 1
+            else:
+                tent1 = tentativa // 1000            
+                tent2 = (tentativa // 100) % 10     
+                tent3 = (tentativa // 10) % 10       
+                tent4 = tentativa % 10
+
+                if tent1 == digito1:
+                    certo1 = tent1
+                if tent2 == digito2:
+                    certo2 = tent2
+                if tent3 == digito3:
+                    certo3 = tent3
+                if tent4 == digito4:
+                    certo4 = tent4
+                
+                print(f"\nPosições corretas: {certo1} {certo2} {certo3} {certo4}\n")
+        else:
+            print("Número fora do intervalo! Digite um número entre 1000 e 9999.")
+
+if acertou == 0:
+    print(f"\nQue pena! Você não acertou. O número secreto era {code}.")
