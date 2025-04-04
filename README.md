@@ -1,4 +1,4 @@
-# 🎮 Jogo Secreto
+# 🎮 Jogo Secreto - Projeto Educacional
 
 ## 📌 Sobre o Jogo  
 O **Jogo Secreto** é um jogo de adivinhação onde o jogador tem **10 tentativas** para descobrir um número secreto de **4 dígitos** (entre 1000 e 9999). Após a **5ª tentativa**, são fornecidas dicas extras para ajudar na descoberta do número.
