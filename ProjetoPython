@@ -1,8 +1,10 @@
+import random
+
 print("🎉 ===>  BEM-VINDO AO JOGO SECRETO!  <=== 🎉")
 print("------------------------------------------------")
 print("💡 Desenvolvido por:")
-print("👨‍💻 Lucas Xavier, Mateus Oliveira,")
-print("👨‍💻 Wanderley Vieira e Arthur Grizone")
+print("Lucas Xavier, Mateus Oliveira,")
+print("Wanderley Vieira e Arthur Grizone")
 print("------------------------------------------------")
 print("📌 Objetivo: Descobrir um número secreto de 4 dígitos (entre 1000 e 9999) em até 10 tentativas!")
 print("🧠 A partir da 5ª tentativa, dicas mais completas serão reveladas!")
@@ -11,7 +13,7 @@ print("------------------------------------------------")
 jogar_novamente = 1
 
 while jogar_novamente == 1:
-    code = 2710
+    code = random.randint(1000, 9999)
     digito1 = code // 1000
     digito2 = (code // 100) % 10
     digito3 = (code // 10) % 10
@@ -52,8 +54,9 @@ while jogar_novamente == 1:
                         certo4 = tent4
 
                     print(f"\n🔍 Dígitos corretos na posição: {certo1} {certo2} {certo3} {certo4}")
+                    print('\n')
 
-                    # DICA: Dígitos corretos na posição errada
+                    
                     quantidade_posicao_errada = 0
 
                     if tent1 != digito1 and (tent1 == digito2 or tent1 == digito3 or tent1 == digito4):
@@ -71,11 +74,10 @@ while jogar_novamente == 1:
                         else:
                             print(f"🤔 Você acertou {quantidade_posicao_errada} dígitos, mas estão nas posições erradas.")
 
-                    # DICAS PROGRESSIVAS (a partir da 5ª tentativa)
+                    
                     if cont >= 4:
                         print("\n🧠 Dicas:")
 
-                        # Dica: Maior ou menor que 5
                         if certo1 == "_":
                             if digito1 > 5:
                                 print("📌 O 1º dígito é MAIOR que 5.")
@@ -97,7 +99,7 @@ while jogar_novamente == 1:
                             else:
                                 print("📌 O 4º dígito é MENOR ou IGUAL a 5.")
 
-                        # Dica: Par ou Ímpar
+                        
                         if cont >= 5:
                             if certo1 == "_":
                                 if digito1 % 2 == 0:
