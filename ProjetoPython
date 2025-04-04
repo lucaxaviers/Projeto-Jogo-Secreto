@@ -1,59 +1,135 @@
-print("===>   !SEJA BEM VINDO AO JOGO SECRETO!   <===")
-print(" ------------------------------------------------")
-print("              Desenvolvido Por:")
-print("                Lucas Xavier,")
-print("               Mateus Oliveira,")
-print("              Wanderley Vieira,")
-print("               Arthur Grizone;")
-print(" ------------------------------------------------")
-print(" ===>        EXPLICANDO O JOGO        <===")
-print("Objetivo:\nAcertar um número secreto de 4 dígitos (entre 1000 e 9999) em 10 tentativas.")
-print("Após a 5° tentativa vamos te dar dicas")
-print(" ------------------------------------------------")
+print("🎉 ===>  BEM-VINDO AO JOGO SECRETO!  <=== 🎉")
+print("------------------------------------------------")
+print("💡 Desenvolvido por:")
+print("👨‍💻 Lucas Xavier, Mateus Oliveira,")
+print("👨‍💻 Wanderley Vieira e Arthur Grizone")
+print("------------------------------------------------")
+print("📌 Objetivo: Descobrir um número secreto de 4 dígitos (entre 1000 e 9999) em até 10 tentativas!")
+print("🧠 A partir da 5ª tentativa, dicas mais completas serão reveladas!")
+print("------------------------------------------------")
 
-code = 2710
-digito1 = code // 1000            
-digito2 = (code // 100) % 10     
-digito3 = (code // 10) % 10       
-digito4 = code % 10   
+jogar_novamente = 1
 
-certo1 = "_"
-certo2 = "_"
-certo3 = "_"
-certo4 = "_"
+while jogar_novamente == 1:
+    code = 2710
+    digito1 = code // 1000
+    digito2 = (code // 100) % 10
+    digito3 = (code // 10) % 10
+    digito4 = code % 10
 
-tentativa = 0
-acertou = 0  # 0 para não acertou, 1 para acertou
+    certo1 = "_"
+    certo2 = "_"
+    certo3 = "_"
+    certo4 = "_"
 
-for cont in range(10): 
-    if acertou == 0:
-        tentativa = int(input(f"Tentativa {cont + 1}/10 Digite um numero entre 1000 e 9999: "))
-        
-        if 1000 <= tentativa <= 9999:
-            if tentativa == code:
-                if cont == 0:
-                    print("Parabénsss Você Acertou o segredo de Primeira!!!!!")
+    tentativa = 0
+    acertou = 0
+
+    for cont in range(10):
+        if acertou == 0:
+            tentativa = int(input(f"\n🎯 Tentativa {cont + 1}/10 - Digite um número entre 1000 e 9999: "))
+
+            if 1000 <= tentativa <= 9999:
+                if tentativa == code:
+                    if cont == 0:
+                        print("🎉 Parabéns! Você acertou o número SECRETO de primeira!!!")
+                    else:
+                        print(f"🎉 Parabéns! Você acertou o número na {cont + 1}ª tentativa!")
+                    acertou = 1
                 else:
-                    print("Parabénsss Você Acertou o segredo!!!")
-                acertou = 1
+                    tent1 = tentativa // 1000
+                    tent2 = (tentativa // 100) % 10
+                    tent3 = (tentativa // 10) % 10
+                    tent4 = tentativa % 10
+
+                    if tent1 == digito1:
+                        certo1 = tent1
+                    if tent2 == digito2:
+                        certo2 = tent2
+                    if tent3 == digito3:
+                        certo3 = tent3
+                    if tent4 == digito4:
+                        certo4 = tent4
+
+                    print(f"\n🔍 Dígitos corretos na posição: {certo1} {certo2} {certo3} {certo4}")
+
+                    # DICA: Dígitos corretos na posição errada
+                    quantidade_posicao_errada = 0
+
+                    if tent1 != digito1 and (tent1 == digito2 or tent1 == digito3 or tent1 == digito4):
+                        quantidade_posicao_errada += 1
+                    if tent2 != digito2 and (tent2 == digito1 or tent2 == digito3 or tent2 == digito4):
+                        quantidade_posicao_errada += 1
+                    if tent3 != digito3 and (tent3 == digito1 or tent3 == digito2 or tent3 == digito4):
+                        quantidade_posicao_errada += 1
+                    if tent4 != digito4 and (tent4 == digito1 or tent4 == digito2 or tent4 == digito3):
+                        quantidade_posicao_errada += 1
+
+                    if quantidade_posicao_errada > 0:
+                        if quantidade_posicao_errada == 1:
+                            print("🤔 Você acertou 1 dígito, mas está na posição errada.")
+                        else:
+                            print(f"🤔 Você acertou {quantidade_posicao_errada} dígitos, mas estão nas posições erradas.")
+
+                    # DICAS PROGRESSIVAS (a partir da 5ª tentativa)
+                    if cont >= 4:
+                        print("\n🧠 Dicas:")
+
+                        # Dica: Maior ou menor que 5
+                        if certo1 == "_":
+                            if digito1 > 5:
+                                print("📌 O 1º dígito é MAIOR que 5.")
+                            else:
+                                print("📌 O 1º dígito é MENOR ou IGUAL a 5.")
+                        elif certo2 == "_":
+                            if digito2 > 5:
+                                print("📌 O 2º dígito é MAIOR que 5.")
+                            else:
+                                print("📌 O 2º dígito é MENOR ou IGUAL a 5.")
+                        elif certo3 == "_":
+                            if digito3 > 5:
+                                print("📌 O 3º dígito é MAIOR que 5.")
+                            else:
+                                print("📌 O 3º dígito é MENOR ou IGUAL a 5.")
+                        elif certo4 == "_":
+                            if digito4 > 5:
+                                print("📌 O 4º dígito é MAIOR que 5.")
+                            else:
+                                print("📌 O 4º dígito é MENOR ou IGUAL a 5.")
+
+                        # Dica: Par ou Ímpar
+                        if cont >= 5:
+                            if certo1 == "_":
+                                if digito1 % 2 == 0:
+                                    print("🔢 O 1º dígito é PAR.")
+                                else:
+                                    print("🔢 O 1º dígito é ÍMPAR.")
+                            elif certo2 == "_":
+                                if digito2 % 2 == 0:
+                                    print("🔢 O 2º dígito é PAR.")
+                                else:
+                                    print("🔢 O 2º dígito é ÍMPAR.")
+                            elif certo3 == "_":
+                                if digito3 % 2 == 0:
+                                    print("🔢 O 3º dígito é PAR.")
+                                else:
+                                    print("🔢 O 3º dígito é ÍMPAR.")
+                            elif certo4 == "_":
+                                if digito4 % 2 == 0:
+                                    print("🔢 O 4º dígito é PAR.")
+                                else:
+                                    print("🔢 O 4º dígito é ÍMPAR.")
+
+                    print("--------------------------------------------------")
             else:
-                tent1 = tentativa // 1000            
-                tent2 = (tentativa // 100) % 10     
-                tent3 = (tentativa // 10) % 10       
-                tent4 = tentativa % 10
+                print("⚠️ Número fora do intervalo! Digite um número entre 1000 e 9999.")
 
-                if tent1 == digito1:
-                    certo1 = tent1
-                if tent2 == digito2:
-                    certo2 = tent2
-                if tent3 == digito3:
-                    certo3 = tent3
-                if tent4 == digito4:
-                    certo4 = tent4
-                
-                print(f"\nPosições corretas: {certo1} {certo2} {certo3} {certo4}\n")
-        else:
-            print("Número fora do intervalo! Digite um número entre 1000 e 9999.")
+    if acertou == 0:
+        print(f"\n😢 Que pena! Você não acertou. O número secreto era {code}.")
 
-if acertou == 0:
-    print(f"\nQue pena! Você não acertou. O número secreto era {code}.")
+    print("\n🙏 Obrigado por jogar o Jogo Secreto!")
+
+    print("\nDeseja jogar novamente?")
+    print("1️⃣  - Sim")
+    print("2️⃣  - Não")
+    jogar_novamente = int(input("Digite sua escolha: "))
