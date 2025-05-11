@@ -3,12 +3,6 @@
 ## 📌 Sobre o Jogo  
 O **Jogo Secreto** é um jogo de adivinhação onde o jogador tem **10 tentativas** para descobrir um número secreto de **4 dígitos** (entre 1000 e 9999). Após a **5ª tentativa**, são fornecidas dicas extras para ajudar na descoberta do número.
 
-## 👨‍💻 Desenvolvido Por  
-- **Lucas Xavier**  
-- **Mateus Oliveira**  
-- **Wanderley Vieira**  
-- **Arthur Grizone**  
-
 ## 🎯 Regras do Jogo  
 - O jogador deve inserir um número entre **1000 e 9999**.  
 - O jogo indicará se algum dígito está **correto e na posição certa** ou **correto, mas na posição errada**.  
@@ -25,3 +19,9 @@ O **Jogo Secreto** é um jogo de adivinhação onde o jogador tem **10 tentativa
 ## 🛠️ Tecnologias Utilizadas  
 - **Python**  
 - **Biblioteca `random`** para gerar o número secreto  
+
+## 👨‍💻 Desenvolvido Por  
+- **Lucas Xavier**  
+- **Mateus Oliveira**  
+- **Wanderley Vieira**  
+- **Arthur Grizone**  
