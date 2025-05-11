@@ -17,8 +17,8 @@ O **Jogo Secreto** é um jogo de adivinhação onde o jogador tem **10 tentativa
 - Boa sorte! 🎲  
 
 ## 🛠️ Tecnologias Utilizadas  
-- **Python**  
-- **Biblioteca `random`** para gerar o número secreto  
+- Python
+- Biblioteca `random` para gerar o número secreto  
 
 ## 👨‍💻 Desenvolvido Por  
 - Lucas Xavier
