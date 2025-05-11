@@ -21,7 +21,7 @@ O **Jogo Secreto** é um jogo de adivinhação onde o jogador tem **10 tentativa
 - **Biblioteca `random`** para gerar o número secreto  
 
 ## 👨‍💻 Desenvolvido Por  
-- **Lucas Xavier**  
-- **Mateus Oliveira**  
-- **Wanderley Vieira**  
-- **Arthur Grizone**  
+- Lucas Xavier
+- Mateus Oliveira
+- Wanderley Vieira
+- Arthur Grizone
